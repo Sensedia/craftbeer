@@ -61,6 +61,7 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 - Design patterns utilizados
 - O sistema está completo e possui os scripts necessários para a execução
 - A utilização do JPA de forma correta
+- A criação do teste unitário
 
 ## O que você pode fazer:
 
