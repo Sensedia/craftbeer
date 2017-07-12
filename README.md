@@ -62,6 +62,6 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 
 ## Links de sugestão:
 
-### Baseado no [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
-### Baseado no [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
+### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
+### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
 
