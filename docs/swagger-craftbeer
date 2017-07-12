@@ -1,0 +1,79 @@
+swagger: "2.0"
+info:
+  description: "No description"
+  version: "1.0.0"
+  title: "CraftBeer"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /beers:
+    get:
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Beer"
+    post:
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Beer"
+      responses:
+        201:
+          description: "Status 201"
+          headers:
+            location:
+              type: "string"
+  /beers/{id}:
+    get:
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/Beer"
+    put:
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Beer"
+      responses:
+        200:
+          description: "Status 200"
+    delete:
+      parameters: []
+      responses:
+        204:
+          description: "Status 204"
+    parameters:
+    - name: "id"
+      in: "path"
+      required: true
+      type: "string"
+definitions:
+  Beer:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      ingredients:
+        type: "string"
+      alcoholContent:
+        type: "string"
+      price:
+        type: "number"
+      category:
+        type: "string"
