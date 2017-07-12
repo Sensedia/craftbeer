@@ -42,6 +42,13 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
    Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.   
    A comunicação com o sistema deverá ser feita através de JPA.
    
+3- O sistem deve conter uma interface web.
+   
+   O sistema deverá  ter um cadastro de cervejas artesanais em uma página web.
+   O projeto web deverá ser feito em Angular.
+   A estrutura do projeto angular pode estar dentro deste projeto ou pode estar em outro projeto exclusivamente web.
+   Como sugestão de projeto externo temos o projeto [Craft Web](https://github.com/Sensedia/craftbeerweb).
+
 ## O que será avaliado no projeto
 
 - Qualidade de código
@@ -54,14 +61,16 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 - Utilizar frameworks
 - Utilizar Spring Data, Spring JPA ou qualquer outro framework para JPA.
 - Alterar e criar o código à vontade
+- Consultar tutoriais, consultar fóruns e tirar dúvidas
 
 ## O que você não pode fazer:
 
 - Copiar de outros candidatos
 - Utilizar outra linguagem que não o Java
+- Pedir alguém para fazer o projeto para você
 
 ## Links de sugestão:
 
 ### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
 ### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
-
+### [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/).
