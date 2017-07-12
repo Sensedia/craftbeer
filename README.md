@@ -33,23 +33,27 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 
 ## Requisitos do projeto
 
-1. Administrar cervejas
+1. Administrar cervejas: 
 
-   O sistema deverá ter um cadastro de cervejas artesanais por API. Você deverá ser capaz de criar, excluir e alterar as cervejas.
+- O sistema deverá ter um cadastro de cervejas artesanais por API.<br/>
+- O sistema deverá ser capaz de criar, excluir e alterar as cervejas.
    
    
 2. Sistema deverá armazenar os dados em banco de dados. 
  
-   Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.   
-   A comunicação com o sistema deverá ser feita através de JPA.
+- Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.<br/>
+- A comunicação com o sistema deverá ser feita através de JPA.
    
-   
 3. O sistem deve conter uma interface web.
    
-   O sistema deverá  ter um cadastro de cervejas artesanais em uma página web.
-   O projeto web deverá ser feito em Angular.
-   A estrutura do projeto angular pode estar dentro deste projeto ou pode estar em outro projeto exclusivamente web.
-   Como sugestão de projeto externo temos o projeto [Craft Web](https://github.com/Sensedia/craftbeerweb).
+- O sistema deverá  ter um cadastro de cervejas artesanais em uma página web.<br/>
+- O projeto web deverá ser feito em Angular.<br/>
+- A estrutura do projeto angular pode estar dentro deste projeto ou pode estar em outro projeto exclusivamente web.<br/>
+- Como sugestão de projeto externo temos o projeto [Craft Web](https://github.com/Sensedia/craftbeerweb).
+
+4. O sistema deve conter testes unitários
+
+- O sistema deverá conter no mínimo 1 teste unitário
 
 ## O que será avaliado no projeto
 
