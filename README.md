@@ -33,16 +33,18 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 
 ## Requisitos do projeto
 
-1- Administrar cervejas
+1. Administrar cervejas
 
    O sistema deverá ter um cadastro de cervejas artesanais por API. Você deverá ser capaz de criar, excluir e alterar as cervejas.
    
-2- Sistema deverá armazenar os dados em banco de dados. 
+   
+2. Sistema deverá armazenar os dados em banco de dados. 
  
    Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.   
    A comunicação com o sistema deverá ser feita através de JPA.
    
-3- O sistem deve conter uma interface web.
+   
+3. O sistem deve conter uma interface web.
    
    O sistema deverá  ter um cadastro de cervejas artesanais em uma página web.
    O projeto web deverá ser feito em Angular.
