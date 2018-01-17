@@ -38,22 +38,17 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 - O sistema deverá ter um cadastro de cervejas artesanais por API.<br/>
 - O sistema deverá ser capaz de criar, excluir e alterar as cervejas.
    
-   
 2. Sistema deverá armazenar os dados em banco de dados. 
  
 - Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.<br/>
+  Caso seja utilizado o MYSQL, adicionar o script para criação do banco.
 - A comunicação com o sistema deverá ser feita através de JPA.
-   
-3. O sistem deve conter uma interface web.
+
+3. O sistema deve conter testes unitários com JUnit
+
+4. O sistema deve conter uma forma de validar o funcionamento.
    
-- O sistema deverá  ter um cadastro de cervejas artesanais em uma página web.<br/>
-- O projeto web deverá ser feito em Angular.<br/>
-- A estrutura do projeto angular pode estar dentro deste projeto ou pode estar em outro projeto exclusivamente web.<br/>
-- Como sugestão de projeto externo temos o projeto [Craft Web](https://github.com/Sensedia/craftbeerweb).
-
-4. O sistema deve conter testes unitários
-
-- O sistema deverá conter no mínimo 1 teste unitário
+- Deverá ser diponibilizado uma coleção do postman ou soapui para testar todos os recursos
 
 ## O que será avaliado no projeto
 
@@ -63,21 +58,23 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 - A utilização do JPA de forma correta
 - A criação do teste unitário
 
+## O que você deve fazer:
+
+- Utilizar java ao máximo e mostrar todo o seu conhecimento.
+
 ## O que você pode fazer:
 
 - Utilizar frameworks
-- Utilizar Spring Data, Spring JPA ou qualquer outro framework para JPA.
+- Utilizar Spring Data ou qualquer outro framework para JPA.
 - Alterar e criar o código à vontade
 - Consultar tutoriais, consultar fóruns e tirar dúvidas
 
 ## O que você não pode fazer:
 
 - Copiar de outros candidatos
-- Utilizar outra linguagem que não o Java
 - Pedir alguém para fazer o projeto para você
 
 ## Links de sugestão:
 
 ### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
 ### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
-### [Enabling Cross Origin Requests for a RESTful Web Service](https://spring.io/guides/gs/rest-service-cors/).
