@@ -54,13 +54,15 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 
 - Qualidade de código
 - Design patterns utilizados
-- O sistema está completo e possui os scripts necessários para a execução
+- O sistema tem que estar completo e possuir todos os scripts necessários para a execução
 - A utilização do JPA de forma correta
-- A criação do teste unitário
+- A criação de testes unitários
 
 ## O que você deve fazer:
 
 - Utilizar java ao máximo e mostrar todo o seu conhecimento.
+- Entregar o projeto completo
+- Usar Java 8 e deixar a gente bem feliz com isso!
 
 ## O que você pode fazer:
 
@@ -68,6 +70,7 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 - Utilizar Spring Data ou qualquer outro framework para JPA.
 - Alterar e criar o código à vontade
 - Consultar tutoriais, consultar fóruns e tirar dúvidas
+- Você pode aprender com código de outras pessoas, utilizar trechos, mas não usar tudo igual.
 
 ## O que você não pode fazer:
 
