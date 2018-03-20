@@ -7,6 +7,8 @@ consumes:
 - "application/json"
 produces:
 - "application/json"
+schemes:
+- "http"
 paths:
   /beers:
     get:
@@ -41,6 +43,17 @@ paths:
           schema:
             $ref: "#/definitions/Beer"
     put:
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Beer"
+      responses:
+        200:
+          description: "Status 200"
+    patch:
       consumes: []
       parameters:
       - name: "body"
