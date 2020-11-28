@@ -1,6 +1,7 @@
 package com.beerhouse.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 public class Beer {
 
     @Id
@@ -26,15 +28,17 @@ public class Beer {
     private BigDecimal price;
 
     @NotNull(message = "alcohol content: required field")
-    private BigDecimal alcoholContent;
+    private String alcoholContent;
 
     @NotNull(message = "name: required field")
     private String category;
 
-    @NotNull(message = "flavor: required field")
-    private Flavor flavor;
-
-    @NotNull(message = "source: required field")
-    private Source source;
+    public Beer( String name, String ingredients, BigDecimal price, String alcoholContent, String category){
+        this.name = name;
+        this.ingredients = ingredients;
+        this.price = price;
+        this.alcoholContent = alcoholContent;
+        this.category = category;
+    }
 
 }
