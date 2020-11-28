@@ -1,3 +1,14 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/caft-beer
+    username: beer
+    password: cr4ft@b33er
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
 server:
   port: 9000
   context-path: /beerhouse
