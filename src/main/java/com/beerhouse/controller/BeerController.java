@@ -1,7 +1,6 @@
 package com.beerhouse.controller;
 
 import com.beerhouse.dto.BeerRequest;
-import com.beerhouse.dto.BeerResourceRequest;
 import com.beerhouse.exception.BeerNotFound;
 import com.beerhouse.model.Beer;
 import com.beerhouse.service.BeerService;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/beers")
@@ -27,7 +27,7 @@ public class BeerController {
 
     @ApiOperation(value = "Create Beer", response = Beer.class)
     @RequestMapping(method= RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-    public ResponseEntity<?> createBeer(@Valid @RequestBody BeerResourceRequest beerRequest) {
+    public ResponseEntity<?> createBeer(@Valid @RequestBody BeerRequest beerRequest) {
         beerService.create(beerRequest);
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }
@@ -46,15 +46,15 @@ public class BeerController {
 
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PatchMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ResponseEntity editComplete(@PathVariable("beerId") Long beerId, @Valid @RequestBody BeerRequest beerRequest) throws BeerNotFound {
-        beerService.edit(beerId, beerRequest);
+    public ResponseEntity editComplete(@PathVariable("beerId") Long beerId, @Valid @RequestBody Map<String, Object> fields) throws BeerNotFound {
+        beerService.edit(beerId, fields);
         return new ResponseEntity<Object>(null, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PutMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ResponseEntity editPartial(@PathVariable("beerId") Long beerId, @Valid @RequestBody BeerResourceRequest beerResourceRequest) {
-        beerService.edit(beerId, beerResourceRequest);
+    public ResponseEntity editPartial(@PathVariable("beerId") Long beerId, @Valid @RequestBody BeerRequest beerRequest) throws BeerNotFound {
+        beerService.edit(beerId, beerRequest);
         return new ResponseEntity<Object>(null, HttpStatus.OK);
     }
 

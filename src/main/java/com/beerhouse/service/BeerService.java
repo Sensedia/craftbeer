@@ -1,16 +1,17 @@
 package com.beerhouse.service;
 
 import com.beerhouse.dto.BeerRequest;
-import com.beerhouse.dto.BeerResourceRequest;
 import com.beerhouse.exception.BeerNotFound;
 import com.beerhouse.model.Beer;
 import com.beerhouse.repository.BeerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -19,7 +20,7 @@ public class BeerService  extends GenericService<Beer>{
     @Autowired
     private BeerRepository beerRepository;
 
-    public void create(BeerResourceRequest beerRequest){
+    public void create(BeerRequest beerRequest){
      Beer beer = beerRequest.convertAsObject();
      beerRepository.saveAndFlush(beer);
     }
@@ -30,42 +31,35 @@ public class BeerService  extends GenericService<Beer>{
     }
 
     public Beer recover(Long id) throws BeerNotFound {
-      log.info("Recover beer: "+id);
-      Optional<Beer> beer =  beerRepository.findById(id);
-
-      if (beer.isPresent()){
-
-          return  beer.get();
-      }else{
-          throw new BeerNotFound();
-      }
+        log.info("Recover beer: " + id);
+        return beerRepository.findById(id).orElseThrow(BeerNotFound::new);
     }
 
-    public void edit(Long beerId, BeerResourceRequest beerResourceRequest){
-        log.info("Edit beer: "+beerId);
-        Optional<Beer> beer = beerRepository.findById(beerId);
 
-        if (beer.isPresent()) {
-            Beer beerEdit = beerResourceRequest.convertAsObject();
-            beerEdit.setId(beer.get().getId());
-            beerRepository.saveAndFlush(beerEdit);
-        }
+    public void edit(Long beerId, BeerRequest beerResourceRequest) throws BeerNotFound {
+        log.info("Edit beer: "+beerId);
+        Beer beer = beerRepository.findById(beerId).orElseThrow(BeerNotFound::new);
+
+        Beer beerEdit = beerResourceRequest.convertAsObject();
+        beerEdit.setId(beer.getId());
+        beerRepository.saveAndFlush(beerEdit);
     }
 
-    public void edit(Long beerId, BeerRequest beerRequest){
+    public void edit(Long beerId, Map<String, Object> fields) throws BeerNotFound {
         log.info("Edit beer: "+beerId);
-        Optional<Beer> beer = beerRepository.findById(beerId);
+        Beer beer = beerRepository.findById(beerId).orElseThrow(BeerNotFound::new);
 
-        if (beer.isPresent()) {
-           Beer beerEdit = beer.get();
-           beerEdit.setName(beerRequest.getName());
-           beerEdit.setIngredients(beerRequest.getIngredients());
-           beerRepository.saveAndFlush(beerEdit);
-        }
+        fields.forEach((k, v) -> {
+            Field field = ReflectionUtils.findField(Beer.class, k);
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, beer, v);
+        });
+
+        beerRepository.saveAndFlush(beer);
     }
 
     public void delete(Long beerId) throws BeerNotFound {
-        log.info("Delete beer: "+beerId);
         beerRepository.delete(recover(beerId));
+        log.info("Delete beer: "+beerId);
     }
 }

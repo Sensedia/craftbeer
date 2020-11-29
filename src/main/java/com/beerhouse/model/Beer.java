@@ -21,7 +21,7 @@ public class Beer {
     @NotNull(message = "name: required field")
     private String name;
 
-    @NotNull(message = "name: required field")
+    @NotNull(message = "ingredients: required field")
     private String ingredients;
 
     @NotNull(message = "price: required field")
@@ -30,7 +30,7 @@ public class Beer {
     @NotNull(message = "alcohol content: required field")
     private String alcoholContent;
 
-    @NotNull(message = "name: required field")
+    @NotNull(message = "category: required field")
     private String category;
 
     public Beer( String name, String ingredients, BigDecimal price, String alcoholContent, String category){
