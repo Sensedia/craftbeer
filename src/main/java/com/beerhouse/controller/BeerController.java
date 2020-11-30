@@ -1,7 +1,6 @@
 package com.beerhouse.controller;
 
 import com.beerhouse.dto.BeerRequest;
-import com.beerhouse.exception.BeerNotFound;
 import com.beerhouse.model.Beer;
 import com.beerhouse.service.BeerService;
 import io.swagger.annotations.Api;
@@ -18,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/beers")
-@Api(tags = "Beers", description = "Related operations like beers")
+@Api(tags = "Beers", description = "Beer-related operations")
 public class BeerController {
 
     @Autowired
@@ -27,7 +26,7 @@ public class BeerController {
 
     @ApiOperation(value = "Create Beer", response = Beer.class)
     @RequestMapping(method= RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-    public ResponseEntity<?> createBeer(@Valid @RequestBody BeerRequest beerRequest) {
+    public ResponseEntity<?> createBeer(@Valid @RequestBody BeerRequest beerRequest) throws Exception {
         beerService.create(beerRequest);
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }
@@ -40,27 +39,27 @@ public class BeerController {
 
     @ApiOperation(value = "Recover Beer", response = Beer.class)
     @RequestMapping(value = "/{beerId}", method= RequestMethod.GET, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ResponseEntity<Beer> recoverBeer(@PathVariable("beerId") Long beerId) throws BeerNotFound {
+    public ResponseEntity<Beer> recoverBeer(@PathVariable("beerId") Long beerId) throws Exception {
         return new ResponseEntity<>(beerService.recover(beerId), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PatchMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ResponseEntity editComplete(@PathVariable("beerId") Long beerId, @Valid @RequestBody Map<String, Object> fields) throws BeerNotFound {
+    public ResponseEntity editComplete(@PathVariable("beerId") Long beerId, @Valid @RequestBody Map<String, Object> fields) throws Exception {
         beerService.edit(beerId, fields);
         return new ResponseEntity<Object>(null, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PutMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-    public ResponseEntity editPartial(@PathVariable("beerId") Long beerId, @Valid @RequestBody BeerRequest beerRequest) throws BeerNotFound {
+    public ResponseEntity editPartial(@PathVariable("beerId") Long beerId, @Valid @RequestBody BeerRequest beerRequest) throws Exception {
         beerService.edit(beerId, beerRequest);
         return new ResponseEntity<Object>(null, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Delete Beer", response = Beer.class)
     @DeleteMapping(value = "/{beerId}")
-    public ResponseEntity<?> deleteBeer(@PathVariable("beerId") Long beerId) throws BeerNotFound {
+    public ResponseEntity<?> deleteBeer(@PathVariable("beerId") Long beerId) throws Exception {
         beerService.delete(beerId);
         return new ResponseEntity<Object>(null, HttpStatus.NO_CONTENT);
     }

@@ -1,6 +1,7 @@
 package com.beerhouse.dto;
 
 import com.beerhouse.model.Beer;
+import com.beerhouse.model.Category;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,10 +26,10 @@ public class BeerRequest {
     @NotNull(message = "alcohol content: required field")
     private String alcoholContent;
 
-    @NotNull(message = "category: required field")
-    private String category;
+    @NotNull(message = "categoryId: required field")
+    private Long categoryId;
 
     public Beer convertAsObject() {
-        return new Beer(name, ingredients, price, alcoholContent, category);
+        return new Beer(name, ingredients, price, alcoholContent);
     }
 }

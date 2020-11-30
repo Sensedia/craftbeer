@@ -6,12 +6,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Beer {
+public class Beer implements Serializable {
 
     @Id
     @SequenceGenerator(name = "beer_seq", sequenceName = "beer_seq")
@@ -31,14 +32,14 @@ public class Beer {
     private String alcoholContent;
 
     @NotNull(message = "category: required field")
-    private String category;
+    @OneToOne
+    private Category category;
 
-    public Beer( String name, String ingredients, BigDecimal price, String alcoholContent, String category){
+    public Beer( String name, String ingredients, BigDecimal price, String alcoholContent){
         this.name = name;
         this.ingredients = ingredients;
         this.price = price;
         this.alcoholContent = alcoholContent;
-        this.category = category;
     }
 
 }
