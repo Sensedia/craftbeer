@@ -1,8 +1,6 @@
 package com.beerhouse.service;
 
 import com.beerhouse.dto.BeerRequest;
-import com.beerhouse.exception.BeerNotFound;
-import com.beerhouse.exception.CategoryNotFound;
 import com.beerhouse.exception.NotFoundException;
 import com.beerhouse.model.Beer;
 import com.beerhouse.model.Category;
@@ -10,13 +8,15 @@ import com.beerhouse.repository.BeerRepository;
 import com.beerhouse.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Janaina Militão
+ */
 @Slf4j
 @Service
 public class BeerService  extends GenericService<Beer>{

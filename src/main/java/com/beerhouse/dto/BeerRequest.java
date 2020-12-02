@@ -1,15 +1,16 @@
 package com.beerhouse.dto;
 
 import com.beerhouse.model.Beer;
-import com.beerhouse.model.Category;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+/**
+ * @author Janaina Militão
+ */
 @ToString
 @Getter @Setter
 public class BeerRequest {

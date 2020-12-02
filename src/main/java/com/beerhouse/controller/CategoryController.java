@@ -11,7 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
+/**
+ * @author Janaina Militão
+ */
 @RestController
 @RequestMapping("/categories")
 @Api(tags = "Categories", description = "Category-related operations")
@@ -22,7 +24,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Create Category", response = Category.class)
     @RequestMapping(method= RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-    public ResponseEntity<?> createCategory(@RequestParam(required=false) String name) {
+    public ResponseEntity<?> createCategory(@RequestParam(required=true) String name) {
         categoryService.create(name);
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }

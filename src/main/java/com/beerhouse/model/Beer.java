@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ * @author Janaina Militão
+ */
 @Entity
 @Getter @Setter
 @NoArgsConstructor

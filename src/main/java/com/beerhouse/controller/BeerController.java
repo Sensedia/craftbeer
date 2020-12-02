@@ -15,6 +15,9 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Janaina Militão
+ */
 @RestController
 @RequestMapping("/beers")
 @Api(tags = "Beers", description = "Beer-related operations")

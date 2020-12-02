@@ -1,6 +1,5 @@
 package com.beerhouse.service;
 
-import com.beerhouse.exception.CategoryNotFound;
 import com.beerhouse.exception.NotFoundException;
 import com.beerhouse.model.Category;
 import com.beerhouse.repository.CategoryRepository;
@@ -10,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author Janaina Militão
+ */
 @Slf4j
 @Service
 public class CategoryService extends GenericService<Category> {

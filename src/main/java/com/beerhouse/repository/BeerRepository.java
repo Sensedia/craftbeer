@@ -5,6 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
+/**
+ * @author Janaina Militão
+ */
 public interface BeerRepository extends JpaRepository<Beer, Long> {
 
     Optional<Beer> findById(Long id);

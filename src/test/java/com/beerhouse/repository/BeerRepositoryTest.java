@@ -1,7 +1,7 @@
-package com.beerhouse.repository.category;
+package com.beerhouse.repository;
 
+import com.beerhouse.model.Beer;
 import com.beerhouse.model.Category;
-import com.beerhouse.repository.CategoryRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -16,10 +16,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
 
+/**
+ * @author Janaina Militão
+ */
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @Transactional(propagation= Propagation.NOT_SUPPORTED)
@@ -29,8 +33,12 @@ import static org.junit.Assert.*;
 public class BeerRepositoryTest {
 
     @Autowired
-    private CategoryRepository repository;
-    private Category category;
+    private BeerRepository repository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    private Beer beer;
 
     @Before
     public void before() {
@@ -38,35 +46,45 @@ public class BeerRepositoryTest {
     }
 
     private void  create(){
-        category = new Category();
-        category.setName("");
-        category = repository.save(category);
+        beer = new Beer();
+        beer.setName("Bamberg");
+        beer.setIngredients("Álcool e ceveda");
+        beer.setAlcoholContent("6%");
+        beer.setPrice(new BigDecimal(15.50));
+        beer.setCategory(create_category());
+        repository.save(beer);
+    }
+
+    private Category create_category(){
+        Category category = new Category();
+        category.setName("Rauchibier");
+        categoryRepository.save(category);
+        return category;
     }
 
     @Test
     public void test01_save() {
-        assertTrue(category.getId() != null);
+        assertTrue(beer.getId() != null);
     }
 
     @Test
     public void test02_findById() {
-        Optional<Category> optionalTrue = repository.findById(category.getId()); //
+        Optional<Beer> optionalTrue = repository.findById(beer.getId()); //
         assertTrue(optionalTrue.isPresent());
-
-        Optional<Category> optionalFalse = repository.findById(45838L);
-        assertFalse(optionalFalse.isPresent());
     }
 
     @Test
     public void test03_update() {
-        String name = "Vienna Lager";
-        category.setName(name);
-        repository.save(category);
-        assertEquals(category.getName(), name);
+        beer.setAlcoholContent("7.5%");
+        beer.setPrice(new BigDecimal(19.50));
+        repository.save(beer);
+        assertEquals(beer.getAlcoholContent(), "7.5%");
+        assertEquals(beer.getPrice(), 19.50);
     }
 
     @After
     public void after() {
-        repository.delete(category);
+        categoryRepository.delete(beer.getCategory());
+        repository.delete(beer);
     }
 }

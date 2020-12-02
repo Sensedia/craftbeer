@@ -11,6 +11,9 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author Janaina Militão
+ */
 @ToString
 @Entity
 @Getter @Setter
