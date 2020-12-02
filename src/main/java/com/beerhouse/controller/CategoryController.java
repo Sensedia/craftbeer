@@ -24,7 +24,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Create Category", response = Category.class)
     @RequestMapping(method= RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE} )
-    public ResponseEntity<?> createCategory(@RequestParam(required=true) String name) {
+    public ResponseEntity<?> createCategory(@RequestParam(required=true) String name) throws Exception {
         categoryService.create(name);
         return new ResponseEntity<Object>(null, HttpStatus.CREATED);
     }

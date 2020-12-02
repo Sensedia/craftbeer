@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author Janaina Militão
@@ -21,10 +22,15 @@ public class CategoryService extends GenericService<Category> {
 
     private static String MSG_CATEGORY_NOT_FOUND = "Category not found";
 
-    public void create(String name){
-        Category category = new Category(name);
-        categoryRepository.saveAndFlush(category);
-        log.info("Create category: "+category.toString());
+    public void create(String name) throws Exception {
+        Optional<Category> categoryCreated = categoryRepository.findByName(name);
+        if(categoryCreated.isPresent()){
+            throw new Exception("Category already registered");
+        }else{
+            Category category = new Category(name);
+            categoryRepository.saveAndFlush(category);
+            log.info("Create category: "+category.toString());
+        }
     }
 
     public List<Category> list(){

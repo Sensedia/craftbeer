@@ -2,6 +2,7 @@ package com.beerhouse.api;
 
 import com.beerhouse.Application;
 import com.beerhouse.model.Category;
+import com.beerhouse.repository.CategoryRepository;
 import com.beerhouse.service.CategoryService;
 import io.restassured.RestAssured;
 import org.junit.After;
@@ -35,7 +36,7 @@ public class CategoryApiRestTest {
     private int port;
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryRepository repository;
 
     private static final String CONTEXT_PATH = "/beerhouse/";
 
@@ -77,7 +78,8 @@ public class CategoryApiRestTest {
 
     @Test
     public void test03_must_delete_category(){
-        Optional<Category> category = categoryService.findAll().stream().findFirst();
+
+        Optional<Category> category = repository.findByName("Standard American Lager");
         Long categoryId = category.get().getId();
 
         int  statusCode =  given().
@@ -89,5 +91,6 @@ public class CategoryApiRestTest {
 
         assertEquals(HttpStatus.NO_CONTENT.value(), statusCode);
     }
+
 
 }
