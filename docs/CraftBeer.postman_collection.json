@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "528636d9-f7f7-42fb-bd24-61dd44f80780",
+		"name": "CraftBeer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "beer",
+			"item": [
+				{
+					"name": "create - beer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Bier Hollf Premium\",\n  \"ingredients\": \"Cevada e álcool\",\n  \"alcoholContent\": \"4,8%\",\n  \"price\": 13,\n  \"categoryId\": 1\n}"
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list - beer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recover - beer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - beer",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"name\": \"Bier Hollf Premium\",\n  \"ingredients\": \"Cevada e álcool\",\n  \"alcoholContent\": \"8%\",\n  \"price\": 15,\n  \"categoryId\": 3\n}"
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit - beer",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n     \"ingredients\": \"Cevada, álcool e lúpulo\"\n  }"
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete - beer",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/beers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"beers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "CRUD Beer"
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create - category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/categories?name=Standard American Lager",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Standard American Lager"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list - category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete - category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:9000/beerhouse/categories/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
