@@ -10,8 +10,51 @@ produces:
 schemes:
 - "http"
 paths:
+  /categories:
+    post:
+      tags:
+      - "Category"
+      consumes: []
+      parameters:
+      - in: query
+        name: name
+        required: true
+        type: "string"
+      responses:
+        201:
+          description: "Status 201"
+          headers:
+            location:
+              type: "string"
+    get:
+      tags:
+      - "Category"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Category"
+
+  /categories/{id}:
+    delete:
+      tags:
+      - "Category"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          type: string
+      responses:
+        204:
+          description: "Status 204"
+
   /beers:
     get:
+      tags:
+      - "Beer"
       parameters: []
       responses:
         200:
@@ -21,6 +64,8 @@ paths:
             items:
               $ref: "#/definitions/Beer"
     post:
+      tags:
+        - "Beer"
       consumes: []
       parameters:
       - name: "body"
@@ -36,6 +81,8 @@ paths:
               type: "string"
   /beers/{id}:
     get:
+      tags:
+      - "Beer"
       parameters: []
       responses:
         200:
@@ -43,6 +90,8 @@ paths:
           schema:
             $ref: "#/definitions/Beer"
     put:
+      tags:
+      - "Beer"
       consumes: []
       parameters:
       - name: "body"
@@ -54,6 +103,8 @@ paths:
         200:
           description: "Status 200"
     patch:
+      tags:
+        - "Beer"
       consumes: []
       parameters:
       - name: "body"
@@ -65,6 +116,8 @@ paths:
         200:
           description: "Status 200"
     delete:
+      tags:
+      - "Beer"
       parameters: []
       responses:
         204:
@@ -88,5 +141,12 @@ definitions:
         type: "string"
       price:
         type: "number"
-      category:
+      categoryId:
+        type: "number"
+  Category:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
         type: "string"
