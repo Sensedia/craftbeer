@@ -24,3 +24,7 @@ services:
       - "3306:3306"
 volumes:
   mysql_data:
+
+networks:
+  default:
+    name: beer
