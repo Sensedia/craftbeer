@@ -1,4 +1,4 @@
-package com.beerhouse.api;
+package com.beerhouse;
 
 import com.beerhouse.Application;
 import com.beerhouse.model.Category;
