@@ -40,6 +40,8 @@ public class CategoryApiRestTest {
 
     private static final String CONTEXT_PATH = "/beerhouse/";
 
+    private static final String CATEGORY_NAME = "Standard American Lager";
+
     @Before
     public void before(){
         RestAssured.baseURI="http://localhost";
@@ -53,9 +55,8 @@ public class CategoryApiRestTest {
 
     @Test
     public void test01_must_create_category(){
-
         int  statusCode =  given().
-                contentType("application/json").queryParam("name", "Standard American Lager").
+                contentType("application/json").queryParam("name", CATEGORY_NAME).
                 when().post(CONTEXT_PATH+"categories").
                 then().
                 assertThat().
@@ -79,7 +80,7 @@ public class CategoryApiRestTest {
     @Test
     public void test03_must_delete_category(){
 
-        Optional<Category> category = repository.findByName("Standard American Lager");
+        Optional<Category> category = repository.findByName(CATEGORY_NAME);
         Long categoryId = category.get().getId();
 
         int  statusCode =  given().
@@ -91,6 +92,5 @@ public class CategoryApiRestTest {
 
         assertEquals(HttpStatus.NO_CONTENT.value(), statusCode);
     }
-
 
 }

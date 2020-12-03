@@ -12,4 +12,6 @@ public interface BeerRepository extends JpaRepository<Beer, Long> {
 
     Optional<Beer> findById(Long id);
 
+    Optional<Beer> findByName(String name);
+
 }

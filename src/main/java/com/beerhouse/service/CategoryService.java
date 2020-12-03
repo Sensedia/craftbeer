@@ -26,11 +26,10 @@ public class CategoryService extends GenericService<Category> {
         Optional<Category> categoryCreated = categoryRepository.findByName(name);
         if(categoryCreated.isPresent()){
             throw new Exception("Category already registered");
-        }else{
-            Category category = new Category(name);
-            categoryRepository.saveAndFlush(category);
-            log.info("Create category: "+category.toString());
         }
+        Category category = new Category(name);
+        categoryRepository.saveAndFlush(category);
+        log.info("Create category: "+category.toString());
     }
 
     public List<Category> list(){

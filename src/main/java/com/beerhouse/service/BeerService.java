@@ -13,6 +13,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author Janaina Militão
@@ -30,7 +31,12 @@ public class BeerService  extends GenericService<Beer>{
     private static String MSG_BEER_NOT_FOUND = "Beer not found";
     private static String MSG_CATEGORY_NOT_FOUND = "Category not found";
 
-    public void create(BeerRequest beerRequest) throws NotFoundException {
+    public void create(BeerRequest beerRequest) throws Exception {
+        Optional<Beer> beerCreated = beerRepository.findByName(beerRequest.getName());
+
+        if(beerCreated.isPresent()){
+            throw new Exception("Beer already registered");
+        }
         Category category = categoryRepository.findById(beerRequest.getCategoryId()).orElseThrow(() -> new NotFoundException(MSG_CATEGORY_NOT_FOUND));
         Beer beer = beerRequest.convertAsObject();
         beer.setCategory(category);
