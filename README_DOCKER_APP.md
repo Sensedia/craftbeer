@@ -1,4 +1,4 @@
-[Compilando a imagem Docker da aplicação]: #compilando-a-imagem-docker-da-aplicação
+[Criando a imagem Docker da aplicação]: #criando-a-imagem-docker-da-aplicação
 [Iniciando o conteiner da aplicação]: #inciando-o-conteiner-da-aplicação
 
 
