@@ -1,5 +1,5 @@
 # Bem vindo(a) ao desafio da Sensedia!<br/>
-# Desde já, desejamos boa sorte :)
+## Desde já, desejamos boa sorte :)
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
 Fique atento as instruções a seguir.
