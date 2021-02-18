@@ -15,7 +15,7 @@ Para iniciar o projeto é necessário realizar o clone do repositório a seguir:
 
 Este repositório contém um projeto base, com algumas dependências previamente adicionadas. Sinta-se a vontade para alterá-lo.
 <br/><br/>Você deverá compartilhar no seu repositório do github as alterações solicitadas para o projeto. 
-O endereço deste repositório deverá ser enviado para o rh após a conclusão do desenvolvimento.
+O endereço deste repositório deverá ser enviado para o setor de Recursos Humanos após a conclusão do desenvolvimento.
 
 ## Especificação do projeto
 
