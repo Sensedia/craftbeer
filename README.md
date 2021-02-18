@@ -1,20 +1,22 @@
-# Cadastro de cervejas artesanais
+# Bem vindo(a) ao desafio da Sensedia! Desde já, desejamos boa sorte :)
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
 
-### Baseado no [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/).
+## Cadastro de cervejas artesanais
 
+### Referência: [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/).
 
 ## Set up environment
 
-Para iniciar o projeto é necessário realizar o clone deste repositório
+Para iniciar o projeto é necessário realizar o clone do repositório a seguir:
 
 ```bash
     $ git clone https://github.com/Sensedia/craftbeer.git
 ```
 
+Este repositório contém um projeto base, com algumas dependências previamente adicionadas. Sinta-se a vontade para alterá-lo.
 Você deverá compartilhar no seu repositório do github as alterações solicitadas para o projeto. 
-O endereço deste repositório deverá ser enviado para rh@sensedia.com
+O endereço deste repositório deverá ser enviado para o rh após a conclusão do desenvolvimento.
 
 ## Especificação do projeto
 
@@ -28,51 +30,54 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
     craftbeer
     |
     |docs
-    |    |___swagger-craftbeer
+    |    |___craftbeer-spec
 
+Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://editor.swagger.io/) para visualizar melhor o que esperamos que seja implementado.
 
 ## Requisitos do projeto
 
 1. Administrar cervejas: 
 
-- O sistema deverá ter um cadastro de cervejas artesanais por API.<br/>
-- O sistema deverá ser capaz de criar, excluir e alterar as cervejas.
+- O sistema deverá ter um cadastro de cervejas artesanais via API<br/>
+- O sistema deverá ser capaz de criar, excluir e alterar (parcialmente ou completamente) as cervejas
    
-2. Sistema deverá armazenar os dados em banco de dados. 
+2. Sistema deverá armazenar as informações em um banco de dados
  
-- Poderá ser utilizado MYSQL ou qualquer banco de dados embbeded.<br/>
-  Caso seja utilizado o MYSQL, adicionar o script para criação do banco.
-- A comunicação com o sistema deverá ser feita através de JPA.
+- Poderá ser utilizada uma base de dados embbeded como H2<br/>
+- Caso opte por não utilizar a solução embbeded, não se esqueça de adicionar scripts de inicialização da base escolhida<br/>
+- A comunicação entre o sistema e a base de dados deverá ser feita através de JPA
 
-3. O sistema deve conter testes unitários com JUnit
+3. O sistema deve conter testes unitários
 
-4. O sistema deve conter uma forma de validar o funcionamento.
+- Utilize JUnit<br/>
+- Para facilitar a escrita dos testes, você pode utilizar frameworks de mock como o [Mockito](https://site.mockito.org/)
+
+4. O sistema deve conter uma forma de validar o funcionamento
    
-- Deverá ser diponibilizado uma coleção do postman ou soapui para testar todos os recursos
+- Deverá ser diponibilizado uma coleção do postman para testar todos os recursos
 
 ## O que será avaliado no projeto
 
 - Qualidade de código
 - Design patterns utilizados
-- O sistema tem que estar completo e possuir todos os scripts necessários para a execução
-- A utilização do JPA de forma correta
+- A utilização correta do Spring, JPA e outros
 - A criação de testes unitários
 
-## O que você deve fazer:
+## O que você deve fazer
 
-- Utilizar java ao máximo e mostrar todo o seu conhecimento.
-- Entregar o projeto completo
-- Usar Java 8 e deixar a gente bem feliz com isso!
+- Utilizar-se da linguagem e dos frameworks ao máximo para mostrar o seu conhecimento
+- Entregar o projeto completo, com scripts e instruções de execução se for o caso
+- Usar Java 8+ e deixar a gente bem feliz com isso!
 
-## O que você pode fazer:
+## O que você pode fazer
 
-- Utilizar frameworks
-- Utilizar Spring Data ou qualquer outro framework para JPA.
+- Utilizar frameworks e bibliotecas que julgar úteis
 - Alterar e criar o código à vontade
 - Consultar tutoriais, consultar fóruns e tirar dúvidas
-- Você pode aprender com código de outras pessoas, utilizar trechos, mas não usar tudo igual.
+- Você pode aprender com código de outras pessoas, utilizar trechos, mas não usar tudo igual
+- Utilizar Docker para containerizar a aplicação (opcional, faz se te sobrar tempo)
 
-## O que você não pode fazer:
+## O que você não pode fazer
 
 - Copiar de outros candidatos
 - Pedir alguém para fazer o projeto para você
@@ -81,3 +86,7 @@ Para implementar estas APIs você dever seguir a especificação do swagger que 
 
 ### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
 ### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
+
+## Essa seção foi reservada para que você descreva como executar seu projeto
+
+TODO

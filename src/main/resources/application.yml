@@ -1,3 +1,2 @@
 server:
-  port: 8000
-  context-path: /beerhouse
+  port: 9000
