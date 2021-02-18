@@ -1,12 +1,9 @@
-# Bem vindo(a) ao desafio da Sensedia!<br/>
-## Desde já, desejamos boa sorte :)
+# Bem vindo(a) ao desafio da Sensedia!<br/>Desde já, desejamos boa sorte :)
 
 O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
 Fique atento as instruções a seguir.
 
 ## Cadastro de cervejas artesanais
-
-### Referência: [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/).
 
 ## Set up environment
 
@@ -17,7 +14,7 @@ Para iniciar o projeto é necessário realizar o clone do repositório a seguir:
 ```
 
 Este repositório contém um projeto base, com algumas dependências previamente adicionadas. Sinta-se a vontade para alterá-lo.
-Você deverá compartilhar no seu repositório do github as alterações solicitadas para o projeto. 
+<br/><br/>Você deverá compartilhar no seu repositório do github as alterações solicitadas para o projeto. 
 O endereço deste repositório deverá ser enviado para o rh após a conclusão do desenvolvimento.
 
 ## Especificação do projeto
@@ -46,7 +43,7 @@ Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://edit
 2. Sistema deverá armazenar as informações em um banco de dados
  
 - Poderá ser utilizada uma base de dados embbeded como H2<br/>
-- Caso opte por não utilizar a solução embbeded, não se esqueça de adicionar scripts de inicialização da base escolhida<br/>
+-- Caso opte por não utilizar a solução embbeded, não se esqueça de adicionar scripts de inicialização da base escolhida<br/>
 - A comunicação entre o sistema e a base de dados deverá ser feita através de JPA
 
 3. O sistema deve conter testes unitários
@@ -86,9 +83,12 @@ Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://edit
 
 ## Links de sugestão:
 
-### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/).
-### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/).
+### [Building an Application with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+### [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+### [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 
-## Essa seção foi reservada para que você descreva como executar seu projeto
+## Seção reservada para que você descreva brevemente como executar o seu projeto
+
+Pode ser algo simples, como executar o arquivo Application.java. Ou talvez tenha alguma dependência como base de dados, por exemplo.
 
 TODO
