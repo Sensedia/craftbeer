@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author Janaina Militão
@@ -26,7 +27,8 @@ public class Beer implements Serializable {
     private String name;
 
     @NotNull(message = "ingredients: required field")
-    private String ingredients;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Ingredient> ingredients;
 
     @NotNull(message = "price: required field")
     private BigDecimal price;
@@ -38,9 +40,8 @@ public class Beer implements Serializable {
     @OneToOne
     private Category category;
 
-    public Beer( String name, String ingredients, BigDecimal price, String alcoholContent){
+    public Beer( String name, BigDecimal price, String alcoholContent){
         this.name = name;
-        this.ingredients = ingredients;
         this.price = price;
         this.alcoholContent = alcoholContent;
     }

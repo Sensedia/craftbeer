@@ -46,6 +46,12 @@ public class BeerController {
         return new ResponseEntity<>(beerService.recover(beerId), HttpStatus.OK);
     }
 
+//    @ApiOperation(value = "Recover Beer", response = Beer.class)
+//    @RequestMapping(value = "/{beerId}", method= RequestMethod.GET, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+//    public ResponseEntity<Beer> recoverBeerByIngredient(@PathVariable("ingedientName") Long ingedientName) throws Exception {
+//        return new ResponseEntity<>(beerService.recover(ingedientName), HttpStatus.OK);
+//    }
+
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PatchMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public ResponseEntity editComplete(@PathVariable("beerId") Long beerId, @Valid @RequestBody Map<String, Object> fields) throws Exception {

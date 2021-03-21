@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @author Janaina Militão
@@ -19,7 +20,7 @@ public class BeerRequest {
     private String name;
 
     @NotNull(message = "ingredients: required field")
-    private String ingredients;
+    private List<Long> ingredients;
 
     @NotNull(message = "price: required field")
     private BigDecimal price;
@@ -31,6 +32,6 @@ public class BeerRequest {
     private Long categoryId;
 
     public Beer convertAsObject() {
-        return new Beer(name, ingredients, price, alcoholContent);
+        return new Beer(name, price, alcoholContent);
     }
 }
