@@ -28,12 +28,12 @@ public class Category implements Serializable {
     @NotNull(message = "name: required field")
     private String name;
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="Category_Beer",
-            joinColumns={@JoinColumn(name = "beer_id")},
-            inverseJoinColumns={@JoinColumn(name = "category_id")})
-    private List<Beer> beers;
+//    @JsonIgnore
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name="Category_Beer",
+//            joinColumns={@JoinColumn(name = "beer_id")},
+//            inverseJoinColumns={@JoinColumn(name = "category_id")})
+//    private List<Beer> beers;
 
     public Category(String name){
         this.name = name;

@@ -1,11 +1,11 @@
 spring:
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/craft_beer
     username: beer
-    password: cr4ft@b33er
+    password: Cr4ft@b33er
   jpa:
-    hibernate.ddl-auto: create
+    hibernate.ddl-auto: none
     generate-ddl: true
     show-sql: true
 
