@@ -18,7 +18,7 @@ git clone https://github.com/janainamilitao/craftbeer
 cd craftbeer
 ./mvnw package
 mv target/craft-beer.jar .
-VERSION=1.0.0
+VERSION=2.0.0
 docker build -t jmilitao/craft-beer:$VERSION .
 docker tag jmilitao/craft-beer:$VERSION jmilitao/craft-beer:latest
 ```
@@ -45,7 +45,7 @@ docker run -p 3306:3306 -d --name mysql \
  -e MYSQL_ROOT_PASSWORD=secret \
  -e MYSQL_DATABASE=craft_beer \
  -e MYSQL_USER=beer \
- -e MYSQL_PASSWORD='cr4ft@b33er' \
+ -e MYSQL_PASSWORD='Cr4ft@b33er' \
 mysql:5.7
 ```
 
@@ -55,8 +55,8 @@ Use o comando a seguir para iniciar um conteiner da aplicação.
 docker run -d -p 9000:9000 --name craft-beer \
 -e DATASOURCE_URL='mysql://172.17.0.1:3306/craft_beer' \
 -e DATASOURCE_USERNAME="beer" \
--e DATASOURCE_PASSWORD='cr4ft@b33er' \
-jmilitao/craft-beer:1.0.0
+-e DATASOURCE_PASSWORD='Cr4ft@b33er' \
+jmilitao/craft-beer:2.0.0
 ```
 
 É possível acessar a documentação da API na URL http://172.17.0.1:9000/beerhouse/swagger-ui.html

@@ -5,7 +5,7 @@ FROM openjdk:8-stretch
 LABEL mantenedor="Janaina Militao do Nascimento" \
       email="janaina.militao@gmail.com" \
       data_criacao="03/12/2020" \
-      versao="1.0.0" \
+      versao="2.0.0" \
       descricao="Especifica a imagem Docker de uma aplicacao Java" \
       licenca="copyright"
 
@@ -25,7 +25,7 @@ ENV DATASOURCE_USERNAME ${DATASOURCE_USERNAME:-'beer'}
 
 # Define a senha do usuario que acessara o database
 ARG DATASOURCE_PASSWORD
-ENV DATASOURCE_PASSWORD ${DATASOURCE_PASSWORD:-'cr4ft@b33er'}
+ENV DATASOURCE_PASSWORD ${DATASOURCE_PASSWORD:-'Cr4ft@b33er'}
 
 # Informacoes sobre a aplicacao
 ARG admin_user=beer
