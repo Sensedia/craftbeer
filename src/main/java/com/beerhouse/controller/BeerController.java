@@ -46,11 +46,11 @@ public class BeerController {
         return new ResponseEntity<>(beerService.recover(beerId), HttpStatus.OK);
     }
 
-//    @ApiOperation(value = "Recover Beer", response = Beer.class)
-//    @RequestMapping(value = "/{beerId}", method= RequestMethod.GET, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-//    public ResponseEntity<Beer> recoverBeerByIngredient(@PathVariable("ingedientName") Long ingedientName) throws Exception {
-//        return new ResponseEntity<>(beerService.recover(ingedientName), HttpStatus.OK);
-//    }
+    @ApiOperation(value = "Recover Beer By Ingredient", response = Beer.class)
+    @RequestMapping(value = "ingredient/{ingredientId}", method= RequestMethod.GET, consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    public ResponseEntity<Beer> recoverBeerByIngredient(@PathVariable("ingredientId") Long ingredientId) throws Exception {
+        return new ResponseEntity<>(beerService.recoverBeerByIngredient(ingredientId), HttpStatus.OK);
+    }
 
     @ApiOperation(value = "Edit Beer", response = Beer.class)
     @PatchMapping(value = "/{beerId}", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE}, produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})

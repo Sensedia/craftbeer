@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -56,7 +57,15 @@ public class BeerService  extends GenericService<Beer>{
 
     public List<Beer> list(){
        log.info("List beer");
-       return beerRepository.findAll();
+        List<Beer> beersReturn = new ArrayList<>();
+        List<Beer> beers = beerRepository.findAll();
+
+        for(Beer beer: beers){
+            beer.setIngredients(ingredientRepository.findByBeer_Id(beer.getId()));
+            beersReturn.add(beer);
+        }
+
+       return beersReturn;
     }
 
     public Beer recover(Long beerId) throws Exception {
@@ -64,10 +73,10 @@ public class BeerService  extends GenericService<Beer>{
         return beerRepository.findById(beerId).orElseThrow(() -> new NotFoundException(MSG_BEER_NOT_FOUND));
     }
 
-//    public Beer recoverByIngrient(String ingredientName) throws Exception {
-//        log.info("Recover beer: " + ingredientName);
-//        return beerRepository.findByNameIngredient(ingredientName) .orElseThrow(() -> new NotFoundException(MSG_BEER_NOT_FOUND));
-//    }
+    public Beer recoverBeerByIngredient(Long ingredientId) throws Exception {
+        log.info("Recover beer: " + ingredientId);
+        return beerRepository.findByIngredients_Id(ingredientId).orElseThrow(() -> new NotFoundException(MSG_BEER_NOT_FOUND));
+    }
 
 
     public void edit(Long beerId, BeerRequest beerResourceRequest) throws NotFoundException {

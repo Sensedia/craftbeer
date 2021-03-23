@@ -23,13 +23,10 @@ public class Ingredient  implements Serializable {
 
     @NotNull(message = "name: required field")
     private String name;
-
-//    @JsonIgnore
-//    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name="Ingredient_Beer",
-//            joinColumns={@JoinColumn(name = "ingredient_id")},
-//            inverseJoinColumns={@JoinColumn(name = "beer_id")})
-//    private List<Beer> beers;
+    
+    @ManyToOne
+    @JoinColumn(name = "beer_id", nullable = true)
+    private Beer beer;
 
     public Ingredient(String name){
         this.name = name;

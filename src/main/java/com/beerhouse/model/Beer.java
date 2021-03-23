@@ -3,6 +3,8 @@ package com.beerhouse.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,7 +29,8 @@ public class Beer implements Serializable {
     private String name;
 
     @NotNull(message = "ingredients: required field")
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "beer", fetch = FetchType.LAZY)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Ingredient> ingredients;
 
     @NotNull(message = "price: required field")
