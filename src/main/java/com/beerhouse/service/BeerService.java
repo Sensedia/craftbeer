@@ -46,12 +46,17 @@ public class BeerService  extends GenericService<Beer>{
         }
         Category category = categoryRepository.findById(beerRequest.getCategoryId()).orElseThrow(() -> new NotFoundException(MSG_CATEGORY_NOT_FOUND));
         List<Ingredient> ingredients = ingredientRepository.findAllByListId(beerRequest.getIngredients());
-        ingredients.stream().findAny().orElseThrow(() -> new NotFoundException(MSG_INGREDIENT_NOT_FOUND));
 
         Beer beer = beerRequest.convertAsObject();
         beer.setCategory(category);
         beer.setIngredients(ingredients);
         beerRepository.saveAndFlush(beer);
+
+        ingredients.stream().forEach( i-> {
+          i.setBeer(beer);
+          ingredientRepository.saveAndFlush(i);
+        });
+
         log.info("Create beer: " + beer.toString());
     }
 
