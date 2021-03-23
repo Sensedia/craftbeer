@@ -23,7 +23,9 @@ public class Ingredient  implements Serializable {
 
     @NotNull(message = "name: required field")
     private String name;
-    
+
+    // Reference: https://stackoverflow.com/questions/42089966/could-not-write-content-failed-to-lazily-initialize-a-collection-of-role
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "beer_id", nullable = true)
     private Beer beer;

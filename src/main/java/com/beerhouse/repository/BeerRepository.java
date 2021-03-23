@@ -1,7 +1,12 @@
 package com.beerhouse.repository;
 
 import com.beerhouse.model.Beer;
+import com.beerhouse.model.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -13,6 +18,5 @@ public interface BeerRepository extends JpaRepository<Beer, Long> {
 
     Optional<Beer> findByName(String name);
 
-    Optional<Beer> findByIngredients_Id(Long ingredientId);
-
+    Optional<Beer> findByIngredientsIn(List<Ingredient> ingredients);
 }

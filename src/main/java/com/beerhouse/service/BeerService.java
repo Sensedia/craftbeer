@@ -13,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author Janaina Militão
@@ -80,7 +77,15 @@ public class BeerService  extends GenericService<Beer>{
 
     public Beer recoverBeerByIngredient(Long ingredientId) throws Exception {
         log.info("Recover beer: " + ingredientId);
-        return beerRepository.findByIngredients_Id(ingredientId).orElseThrow(() -> new NotFoundException(MSG_BEER_NOT_FOUND));
+
+        Ingredient ingredient = ingredientRepository.findById(ingredientId).get();
+
+        Beer beer = beerRepository.findByIngredientsIn(Arrays.asList(ingredient)).orElseThrow(() -> new NotFoundException(MSG_BEER_NOT_FOUND));
+
+        beer.setIngredients(new ArrayList<>());
+        beer.getIngredients().add(ingredient);
+
+        return beer;
     }
 
 
