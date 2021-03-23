@@ -1,9 +1,7 @@
 package com.beerhouse;
 
-import com.beerhouse.Application;
 import com.beerhouse.model.Category;
 import com.beerhouse.repository.CategoryRepository;
-import com.beerhouse.service.CategoryService;
 import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
