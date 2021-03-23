@@ -157,7 +157,21 @@ public class BeerApiRestTest {
     }
 
     @Test
-    public void test05_must_delete_beer() throws NotFoundException {
+    public void test05_must_recover_beer_by_ingredient() {
+        Long ingredientId = ingredientRepository.findByName(INGREDIENT_NAME_1).get().getId();
+
+        int  statusCode =  given().
+                contentType("application/json").
+                when().get(CONTEXT_PATH+"beers/ingredient/"+ingredientId).
+                then().
+                assertThat().
+                statusCode(HttpStatus.OK.value()).extract().statusCode();
+
+        assertEquals(HttpStatus.OK.value(), statusCode);
+    }
+
+    @Test
+    public void test06_must_delete_beer() throws NotFoundException {
         Optional<Beer> beer = beerRepository.findByName(BEER_NAME);
         Long beerId = beer.get().getId();
 
