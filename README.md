@@ -1,6 +1,11 @@
 # Bem vindo(a) ao desafio da Sensedia!<br/>Desde já, desejamos boa sorte :)
 
-O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação java utilizando Spring e APIs.
+O objetivo deste projeto é avaliar o desenvolvimento de uma aplicação com API Rest e persistência de dados.
+
+Poderá usar Java com Spring Boot ou outra linguagem a ser combinada conosco previamente. As sugestões de frameworks feitas em Java podem ser adaptadas para sua stack caso não opte por Java.
+
+> **IMPORTANTE:** Para algumas posições precisamos que o desafio seja realizado em Java com Spring Boot, por isso é importante ***alinhar com nosso RH*** a linguagem do desafio.
+
 Fique atento as instruções a seguir.
 
 ## Cadastro de cervejas artesanais
