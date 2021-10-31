@@ -8,6 +8,7 @@ import com.beerhouse.model.Ingredient;
 import com.beerhouse.repository.BeerRepository;
 import com.beerhouse.repository.CategoryRepository;
 import com.beerhouse.repository.IngredientRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,20 +21,15 @@ import java.util.*;
  */
 @Slf4j
 @Service
-public class BeerService  extends GenericService<Beer>{
+@RequiredArgsConstructor
+public class BeerService {
 
-    @Autowired
-    private BeerRepository beerRepository;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private IngredientRepository ingredientRepository;
+    private final BeerRepository beerRepository;
+    private final CategoryRepository categoryRepository;
+    private final IngredientRepository ingredientRepository;
 
     private static String MSG_BEER_NOT_FOUND = "Beer not found";
     private static String MSG_CATEGORY_NOT_FOUND = "Category not found";
-    private static String MSG_INGREDIENT_NOT_FOUND = "Ingredient  not found";
 
     public void create(BeerRequest beerRequest) throws Exception {
         Optional<Beer> beerCreated = beerRepository.findByName(beerRequest.getName());

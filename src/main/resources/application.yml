@@ -1,14 +1,19 @@
-spring:
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/craft_beer
-    username: beer
-    password: Cr4ft@b33er
-  jpa:
-    hibernate.ddl-auto: none
-    generate-ddl: true
-    show-sql: true
+# Database
+datasource:
+  driver-class-name: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/craft-beer
+  username: beer
+  password: Cr4ft@b33er
+  
+# JPA properties
+jpa:
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+  database: postgresql
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+#Server
 server:
-  port: 9000
-  context-path: /beerhouse
+    port: 9000
+    context-path: /beerhouse
