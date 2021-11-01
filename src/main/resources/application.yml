@@ -27,9 +27,7 @@ server:
   port: 9000
   context-path: /beerhouse
 
-management:
-  security:
-    enabled: false
+
 
 #Actuator - endpoints customizadas
 endpoints:
@@ -38,8 +36,27 @@ endpoints:
     id: springbeans
   info:
     id: information
-    sensitive: false
+    sensitive: false # Habilita endpoints de dados mais sensíveis. Quando false recomandado usar algum tipo de autenticação na aplicação
     enabled: true
   shutdown:
-    enabled: true
+    enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
 
+# Desabilitando o spring secutiry
+management:
+  endpoint:
+    info:
+      enabled: true
+  info:
+    git:
+      mode: full
+      enabled: true
+  security:
+    enabled: false
+
+#Adiciona informações ao enpoint info
+info:
+  app:
+    name: @project.name@
+    groupId: @project.groupId@
+    artifactId: @project.artifactId@
+    version: @project.version@
