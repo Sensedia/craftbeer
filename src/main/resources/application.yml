@@ -1,11 +1,5 @@
 # Database
 spring:
-  spring:
-    boot:
-      admin:
-        client:
-          url: http://localhost:9000   # configurando o Spring Boot Admin Server
-
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/craft_beer
@@ -27,31 +21,22 @@ server:
   port: 9000
   context-path: /beerhouse
 
+# Desabilitando o spring secutiry
+management:
+  security:
+    enabled: false
 
-
-#Actuator - endpoints customizadas
+#Actuator - endpoints customizados
 endpoints:
   context-path: /beerhouse
   beans:
-    id: springbeans
+    id: springbeans # Renomeando endpoint beans
   info:
-    id: information
+    id: information # Renomeando endpoint info
     sensitive: false # Habilita endpoints de dados mais sensíveis. Quando false recomandado usar algum tipo de autenticação na aplicação
     enabled: true
   shutdown:
     enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
-
-# Desabilitando o spring secutiry
-management:
-  endpoint:
-    info:
-      enabled: true
-  info:
-    git:
-      mode: full
-      enabled: true
-  security:
-    enabled: false
 
 #Adiciona informações ao enpoint info
 info:
