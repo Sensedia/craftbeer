@@ -23,22 +23,22 @@ server:
   port: 9000
 
 
-# Desabilitando o spring secutiry
-management:
-  security:
-    enabled: false
-
 #Actuator - endpoints customizados
-endpoints:
-  context-path: /beerhouse
-  beans:
-    id: springbeans # Renomeando endpoint beans
+management:
   info:
-    id: information # Renomeando endpoint info
-    sensitive: false # Habilita endpoints de dados mais sensíveis. Quando false recomandado usar algum tipo de autenticação na aplicação
-    enabled: true
-  shutdown:
-    enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
+    git:
+      mode: full # Habilita informações de versionamento da aplicaçõo no enpoint info
+  endpoint:
+    shutdown:
+      enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
+  endpoints:
+    web:
+      base-path: /monitoring
+      exposure:
+        include: '*'
+      path-mapping:
+        info: information # Renomeando endpoint info
+        beans: springbeans # Renomeando endpoint beans
 
 #Adiciona informações ao enpoint info
 info:
