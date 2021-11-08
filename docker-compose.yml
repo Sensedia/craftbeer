@@ -1,9 +1,9 @@
 version: '3.7'
 services:
   craft-beer:
-    image: jmilitao/craft-beer:2.0.0
+    image: jmilitao/craft-beer:3.0.0
     environment:
-      DATASOURCE_URL: 'postgresql://172.17.0.1:3306/craft_beer'
+      DATASOURCE_URL: 'postgresql://172.17.0.1:5433/craft_beer'
       DATASOURCE_USERNAME: "postgres"
       DATASOURCE_PASSWORD: 'postgres'
     ports:

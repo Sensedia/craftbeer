@@ -18,8 +18,10 @@ spring:
 
 # Server
 server:
+  servlet:
+    context-path: /beerhouse
   port: 9000
-  context-path: /beerhouse
+
 
 # Desabilitando o spring secutiry
 management:

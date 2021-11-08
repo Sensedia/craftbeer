@@ -51,11 +51,11 @@ postgres
 Use o comando a seguir para iniciar um conteiner da aplicação.
 
 ```sh
-docker run -d -p 8080:8080 --name craft_beer \
+docker run -d -p 9000:9000 --name craft-beer \
 -e DATASOURCE_URL="postgresql://172.17.0.1:5433/craft_beer" \
 -e DATASOURCE_USERNAME="postgres" \
 -e DATASOURCE_PASSWORD="postgres" \
-jmilitao/craft_beer:latest
+jmilitao/craft-beer:latest
 ```
 
 É possível acessar a documentação da API na URL http://172.17.0.1:9000/beerhouse/swagger-ui.html
@@ -69,7 +69,7 @@ Para importar o arquivo com as collections no [Postman](https://www.postman.com)
 Use os comandos a seguir para visualizar o log dos contêineres.
 
 ```sh
-docker logs -f mysql
+docker logs -f postgres
 docker logs -f craft-beer
 ```
 

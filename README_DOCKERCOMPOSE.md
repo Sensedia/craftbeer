@@ -51,7 +51,7 @@ docker-compose -f docker-compose.yml logs NOME_SERVICO
 O nome do serviço é declarado no arquivo ``docker-compose.yml``. Exemplo:
 
 ```sh
-docker-compose -f docker-compose.yml logs mysql
+docker-compose -f docker-compose.yml logs postgres
 ```
 
 Use os comandos a seguir para parar e remover os contêineres.
