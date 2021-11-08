@@ -362,26 +362,6 @@
 					"response": []
 				},
 				{
-					"name": "trace",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:9000/beerhouse/trace",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"beerhouse",
-								"trace"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "information",
 					"request": {
 						"method": "GET",
@@ -396,26 +376,6 @@
 							"path": [
 								"beerhouse",
 								"information"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "auditevents",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:9000/beerhouse/auditevents",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "9000",
-							"path": [
-								"beerhouse",
-								"auditevents"
 							]
 						}
 					},
