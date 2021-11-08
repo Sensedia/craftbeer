@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "528636d9-f7f7-42fb-bd24-61dd44f80780",
-		"name": "CraftBeer",
+		"_postman_id": "6ed22a96-5128-4b44-a902-b6ff4a4a02a4",
+		"name": "Craftbeer - API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -25,11 +25,11 @@
 							"raw": "{\n  \"name\": \"Bier Hollf Premium\",\n  \"ingredients\": \"Cevada e álcool\",\n  \"alcoholContent\": \"4,8%\",\n  \"price\": 13,\n  \"categoryId\": 1\n}"
 						},
 						"url": {
-							"raw": "localhost:9000/beerhouse/beers",
+							"raw": "localhost:8080/beerhouse/beers",
 							"host": [
 								"localhost"
 							],
-							"port": "9000",
+							"port": "8080",
 							"path": [
 								"beerhouse",
 								"beers"
@@ -238,10 +238,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "localhost:9000/beerhouse/categories",
 							"host": [
@@ -275,6 +271,231 @@
 								"beerhouse",
 								"categories",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "actuator",
+			"item": [
+				{
+					"name": "health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "beans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/springbeans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"springbeans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "env",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/env",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"env"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/metrics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"metrics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "trace",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/trace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"trace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "information",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/information",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"information"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auditevents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/auditevents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"auditevents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "configprops",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/configprops",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"configprops"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mappings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/mappings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"mappings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loggers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/loggers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"loggers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shutdown",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beerhouse/shutdown",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beerhouse",
+								"shutdown"
 							]
 						}
 					},

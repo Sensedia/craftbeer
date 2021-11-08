@@ -1,14 +1,47 @@
+# Database
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/craft_beer
-    username: beer
-    password: Cr4ft@b33er
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/craft_beer
+    username: postgres
+    password: postgres
+
+# JPA properties
   jpa:
-    hibernate.ddl-auto: none
     generate-ddl: true
     show-sql: true
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        ddl-auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
+# Server
 server:
   port: 9000
   context-path: /beerhouse
+
+# Desabilitando o spring secutiry
+management:
+  security:
+    enabled: false
+
+#Actuator - endpoints customizados
+endpoints:
+  context-path: /beerhouse
+  beans:
+    id: springbeans # Renomeando endpoint beans
+  info:
+    id: information # Renomeando endpoint info
+    sensitive: false # Habilita endpoints de dados mais sensíveis. Quando false recomandado usar algum tipo de autenticação na aplicação
+    enabled: true
+  shutdown:
+    enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
+
+#Adiciona informações ao enpoint info
+info:
+  app:
+    name: @project.name@
+    groupId: @project.groupId@
+    artifactId: @project.artifactId@
+    version: @project.version@

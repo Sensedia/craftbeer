@@ -3,6 +3,7 @@ package com.beerhouse.service;
 import com.beerhouse.exception.NotFoundException;
 import com.beerhouse.model.Category;
 import com.beerhouse.repository.CategoryRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,10 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-public class CategoryService extends GenericService<Category> {
+@RequiredArgsConstructor
+public class CategoryService {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     private static String MSG_CATEGORY_NOT_FOUND = "Category not found";
 
