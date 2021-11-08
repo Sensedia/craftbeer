@@ -1,30 +1,22 @@
 version: '3.7'
 services:
   craft-beer:
-    image: jmilitao/craft-beer:2.0.0
+    image: jmilitao/craft-beer:3.0.0
     environment:
-      DATASOURCE_URL: 'mysql://172.17.0.1:3306/craft_beer'
-      DATASOURCE_USERNAME: "beer"
-      DATASOURCE_PASSWORD: 'Cr4ft@b33er'
+      DATASOURCE_URL: 'postgresql://172.17.0.1:5433/craft_beer'
+      DATASOURCE_USERNAME: "postgres"
+      DATASOURCE_PASSWORD: 'postgres'
     ports:
       - "9000:9000"
     depends_on:
-      - "mysql"
-  mysql:
-    image: mysql:5.7
-    environment:
-      MYSQL_HOST: "172.17.0.1"
-      MYSQL_ROOT_PASSWORD: "secret"
-      MYSQL_DATABASE: "craft_beer"
-      MYSQL_USER: "beer"
-      MYSQL_PASSWORD: 'Cr4ft@b33er'
-    volumes:
-      - "mysql_data:/var/lib/mysql"
-    ports:
-      - "3306:3306"
-volumes:
-  mysql_data:
-
-networks:
-  default:
-    name: beer
+      - "postgres"
+    postgres:
+      image: postgres
+      environment:
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=craft_beer
+      volumes:
+        - /docker/postgresql/craft_beer/data:/var/lib/postgresql/data
+      ports:
+        - "5433:5432"

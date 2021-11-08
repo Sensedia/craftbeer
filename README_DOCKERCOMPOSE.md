@@ -25,7 +25,7 @@ docker-compose -f docker-compose.yml start
 
 Ou importando o arquivo [docs/swagger-craftbeer](docs/swagger-craftbeer) no [Swagger Editor](https://editor.swagger.io).
 
-Para importar o arquivo com as collections no [Postman](https://www.postman.com), baixe o arquivo [docs/CraftBeer.postman_collection.json](docs/CraftBeer.postman_collection.json).
+Para importar o arquivo com as collections no [Postman](https://www.postman.com), baixe o arquivo [docs/CraftBeer.postman_collection.json](docs/Craftbeer-API.postman_collection.json).
 
 # Opcional
 
@@ -51,7 +51,7 @@ docker-compose -f docker-compose.yml logs NOME_SERVICO
 O nome do serviço é declarado no arquivo ``docker-compose.yml``. Exemplo:
 
 ```sh
-docker-compose -f docker-compose.yml logs mysql
+docker-compose -f docker-compose.yml logs postgres
 ```
 
 Use os comandos a seguir para parar e remover os contêineres.

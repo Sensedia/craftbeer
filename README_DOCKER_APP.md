@@ -18,7 +18,7 @@ git clone https://github.com/janainamilitao/craftbeer
 cd craftbeer
 ./mvnw package
 mv target/craft-beer.jar .
-VERSION=2.0.0
+VERSION=3.0.0
 docker build -t jmilitao/craft-beer:$VERSION .
 docker tag jmilitao/craft-beer:$VERSION jmilitao/craft-beer:latest
 ```
@@ -36,27 +36,26 @@ docker push jmilitao/craft-beer:latest
 Use o comando a seguir para iniciar um conteiner do banco de dados.
 
 ```sh
-sudo mkdir -p /docker/mysql/craft-beer/data
+sudo mkdir -p /docker/postgresql/craft_beer/data
+sudo chown -R 999:999 /docker/postgresql/craft_beer/data
 
-docker run -p 3306:3306 -d --name mysql \
+docker run -p 5433:5432 -d --name postgres \
 --restart=always \
--v /docker/mysql/craft-beer/data:/var/lib/mysql \
- -e MYSQL_HOST=172.17.0.1 \
- -e MYSQL_ROOT_PASSWORD=secret \
- -e MYSQL_DATABASE=craft_beer \
- -e MYSQL_USER=beer \
- -e MYSQL_PASSWORD='Cr4ft@b33er' \
-mysql:5.7
+-v /docker/postgresql/scraft_beer/data:/var/lib/postgresql/data \
+-e POSTGRES_DB="craft_beer" \
+-e POSTGRES_PASSWORD="postgres" \
+-e POSTGRES_USER="postgres" \
+postgres
 ```
 
 Use o comando a seguir para iniciar um conteiner da aplicação.
 
 ```sh
 docker run -d -p 9000:9000 --name craft-beer \
--e DATASOURCE_URL='mysql://172.17.0.1:3306/craft_beer' \
--e DATASOURCE_USERNAME="beer" \
--e DATASOURCE_PASSWORD='Cr4ft@b33er' \
-jmilitao/craft-beer:2.0.0
+-e DATASOURCE_URL="postgresql://172.17.0.1:5433/craft_beer" \
+-e DATASOURCE_USERNAME="postgres" \
+-e DATASOURCE_PASSWORD="postgres" \
+jmilitao/craft-beer:latest
 ```
 
 É possível acessar a documentação da API na URL http://172.17.0.1:9000/beerhouse/swagger-ui.html
@@ -70,8 +69,8 @@ Para importar o arquivo com as collections no [Postman](https://www.postman.com)
 Use os comandos a seguir para visualizar o log dos contêineres.
 
 ```sh
-docker logs -f mysql
+docker logs -f postgres
 docker logs -f craft-beer
 ```
 
-Se quiser fazer backup do banco criado anteriormente, basta fazer backup do diretório ``/docker/mysql/craft-beer/data``.
+Se quiser fazer backup do banco criado anteriormente, basta fazer backup do diretório ``/docker/postgresql/craft_beer/data.``.
