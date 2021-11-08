@@ -17,15 +17,15 @@ LABEL mantenedor="Janaina Militao do Nascimento" \
 
 # Define o tipo do SGBD, host, porta e nome do database a ser usado pela aplicacao
 ARG DATASOURCE_URL
-ENV DATASOURCE_URL ${DATASOURCE_URL:-'mysql://172.17.0.1:3306/craft_beer'}
+ENV DATASOURCE_URL ${DATASOURCE_URL:-'postgresql://172.17.0.1:3306/craft_beer'}
 
 # Define o nome do usuario que acessara o database
 ARG DATASOURCE_USERNAME
-ENV DATASOURCE_USERNAME ${DATASOURCE_USERNAME:-'beer'}
+ENV DATASOURCE_USERNAME ${DATASOURCE_USERNAME:-'postgres'}
 
 # Define a senha do usuario que acessara o database
 ARG DATASOURCE_PASSWORD
-ENV DATASOURCE_PASSWORD ${DATASOURCE_PASSWORD:-'Cr4ft@b33er'}
+ENV DATASOURCE_PASSWORD ${DATASOURCE_PASSWORD:-'postgres'}
 
 # Informacoes sobre a aplicacao
 ARG admin_user=beer
