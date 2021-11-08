@@ -8,7 +8,7 @@ CRUD de Cerjeva e de cartegoria de cerveja.
 
 ##Tecnologias Utilizadas
 
-Java, Spring Boot, Rest Assured, Spring Actuator, Docker, JPA e Postgres 
+Java, Spring Boot, Spring Actuator, Docker, JPA e Postgres 
 
 #Executando a aplicação com Docker
 
