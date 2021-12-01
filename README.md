@@ -1,4 +1,4 @@
-# Sistema de cadastro de cerjevas artesanais
+# Sistema de cadastro de cervejas artesanais
 
 **Objetivo:** Sistema para cadstro de Cerjeva
 
