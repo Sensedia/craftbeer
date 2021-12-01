@@ -10,6 +10,6 @@ CRUD de Cerjeva e de cartegoria de cerveja.
 
 Java, Spring Boot, Spring Actuator, Docker, JPA e Postgres 
 
-# Executando a aplicação com Docker
+## Executando a aplicação com Docker
 
 [Iniciando o conteiner da aplicação](README_DOCKER_APP.md)
