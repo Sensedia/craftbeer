@@ -30,7 +30,9 @@ management:
       mode: full # Habilita informações de versionamento da aplicaçõo no enpoint info
   endpoint:
     shutdown:
-      enabled: true # Fornece endpoint para desligar a aplicação. Não recomendado seu uso
+      enabled: true # Fornece endpoint para desligar a aplicação
+    health:
+     show-details: always
   endpoints:
     web:
       base-path: /monitoring
