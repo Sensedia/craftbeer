@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @Data
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name = "TB_BEERS")
 public class Beer implements Serializable {
 
     @Id
@@ -29,11 +31,11 @@ public class Beer implements Serializable {
     @Column(name = "Ingredientes", nullable = false)
     private String ingredients;
 
-    @Column(name = "PorcentagemAlcolica", nullable = false)
+    @Column(name = "PorcAlcool", nullable = false)
     private String alcoholContent;
 
     @Column(name = "Preco", nullable = false)
-    private Number price;
+    private Long price;
 
     @Column(name = "Categoria", nullable = false)
     private String category;
