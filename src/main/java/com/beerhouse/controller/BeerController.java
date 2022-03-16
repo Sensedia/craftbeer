@@ -21,7 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/beer")
+@RequestMapping("/beers")
 public class BeerController {
 
     @Autowired
@@ -37,6 +37,7 @@ public class BeerController {
     }
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     private List<Beer> beerList() {
         return beerService.beerList();
     }
@@ -49,6 +50,7 @@ public class BeerController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public void removeBeer (@PathVariable("id") Integer id) {
         beerService.findById(id)
                 .map(beer -> {
